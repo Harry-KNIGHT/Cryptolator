@@ -12,14 +12,28 @@ struct CryptoCurrenciesView: View {
 	var body: some View {
 		NavigationView {
 			ScrollView {
+				LazyVStack(alignment: .leading) {
+					ForEach(cryptos.cryptoCurrencies, id: \.self) { crypto in
+						NavigationLink(destination: CalculatorView(crypo: crypto)) {
+							HStack {
+								AsyncCryptoIconView(crypto: crypto)
+								VStack(alignment: .leading, spacing: 5) {
+									Text(crypto.name ?? "")
+										.font(.headline)
+									Text(String(crypto.currentPrice ?? 0))
 
-				ForEach(cryptos.cryptoCurrencies, id: \.self) { crypto in
-					HStack {
-						VStack {
-					Text(crypto.name ?? "")
+								}.foregroundColor(.primary)
+								Spacer()
+
+							}
+							.padding(8)
+							.background(.regularMaterial)
+							.cornerRadius(10)
 						}
 					}
 				}
+
+				.padding()
 			}.task {
 				Task {
 					try await cryptos.fetchCrypto()
