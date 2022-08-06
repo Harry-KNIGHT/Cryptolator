@@ -14,7 +14,8 @@ struct AsyncCryptoIconView: View {
 			image
 				.resizable()
 		} placeholder: {
-			ProgressView()
+			RoundedRectangle(cornerRadius: 10)
+				.fill(.secondary)
 		}
 		.frame(width: 50, height: 50)
     }
