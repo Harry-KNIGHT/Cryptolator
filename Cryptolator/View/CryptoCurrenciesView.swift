@@ -14,7 +14,7 @@ struct CryptoCurrenciesView: View {
 			ScrollView {
 				LazyVStack(alignment: .leading) {
 					ForEach(cryptos.cryptoCurrencies, id: \.self) { crypto in
-						NavigationLink(destination: CalculatorView(crypo: crypto)) {
+						NavigationLink(destination: CalculatorView(crypto: crypto)) {
 							HStack {
 								AsyncCryptoIconView(crypto: crypto)
 								VStack(alignment: .leading, spacing: 5) {
