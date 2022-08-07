@@ -54,8 +54,8 @@ struct CalculatorView: View {
 
 			}
 			HStack {
-				ExtractedCalculButton(number: "7", numberToCalcul: $numberToCalcul)
-				ExtractedCalculButton(number: "8", numberToCalcul: $numberToCalcul)
+				ExtractedCalculButton(number: "7", numberToCalcul: $numberToCalcul, showResult: $showResult)
+				ExtractedCalculButton(number: "8", numberToCalcul: $numberToCalcul, showResult: $showResult)
 				Button(action: {
 					calculVM.numberEntry.append(numberToCalcul)
 					print(calculVM.numberEntry)
@@ -73,21 +73,21 @@ struct CalculatorView: View {
 				})
 			}
 			HStack {
-				ExtractedCalculButton(number: "4", numberToCalcul: $numberToCalcul)
-				ExtractedCalculButton(number: "5", numberToCalcul: $numberToCalcul)
-				ExtractedCalculButton(number: "6", numberToCalcul: $numberToCalcul)
+				ExtractedCalculButton(number: "4", numberToCalcul: $numberToCalcul, showResult: $showResult)
+				ExtractedCalculButton(number: "5", numberToCalcul: $numberToCalcul, showResult: $showResult)
+				ExtractedCalculButton(number: "6", numberToCalcul: $numberToCalcul, showResult: $showResult)
 			}
 
 
 			HStack {
-				ExtractedCalculButton(number: "1", numberToCalcul: $numberToCalcul)
-				ExtractedCalculButton(number: "2", numberToCalcul: $numberToCalcul)
-				ExtractedCalculButton(number: "3", numberToCalcul: $numberToCalcul)
+				ExtractedCalculButton(number: "1", numberToCalcul: $numberToCalcul, showResult: $showResult)
+				ExtractedCalculButton(number: "2", numberToCalcul: $numberToCalcul, showResult: $showResult)
+				ExtractedCalculButton(number: "3", numberToCalcul: $numberToCalcul, showResult: $showResult)
 			}
 			HStack {
-				ExtractedCalculButton(number: "0", numberToCalcul: $numberToCalcul)
-				ExtractedCalculButton(number: ".", numberToCalcul: $numberToCalcul)
-				ExtractedCalculButton(number: "=", numberToCalcul: $numberToCalcul)
+				ExtractedCalculButton(number: "0", numberToCalcul: $numberToCalcul, showResult: $showResult)
+				ExtractedCalculButton(number: ".", numberToCalcul: $numberToCalcul, showResult: $showResult)
+				ExtractedCalculButton(number: "=", numberToCalcul: $numberToCalcul, showResult: $showResult)
 			}
 
 		}
@@ -108,11 +108,11 @@ struct ExtractedCalculButton: View {
 	var number: String
 	@Binding var numberToCalcul: String
 	@EnvironmentObject public var calculVM: CalculViewModel
-
-
+	@Binding public var showResult: Bool
 	var body: some View {
 		Button(action: {
 			self.numberToCalcul += number
+			self.showResult = false
 		}, label: {
 			ZStack {
 				Text(String(number))
