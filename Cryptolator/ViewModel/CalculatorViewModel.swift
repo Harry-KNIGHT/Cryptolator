@@ -8,13 +8,15 @@
 import Foundation
 
 class CalculViewModel: ObservableObject {
-	@Published public var numberEntry: String = ""
+	@Published public var numberEntry = [String]()
+	@Published public var finalCalcul: Double = 0
 
-	func calculPrice(_ numberEntry: String, cryptoPrice: CryptoResponseElement) -> Double {
+	func calculPrice(_ numberEntry: String, cryptoPrice: Double) -> Double {
 
 		let numberEntryIntoDouble = Double(numberEntry) ?? 0
-		let calcul = numberEntryIntoDouble * (cryptoPrice.currentPrice ?? 0)
-
-		return calcul.rounded()
+		let calcul = (numberEntryIntoDouble * cryptoPrice)
+		finalCalcul = calcul
+		
+		return calcul
 	}
 }

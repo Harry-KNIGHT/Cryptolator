@@ -10,7 +10,8 @@ import SwiftUI
 struct CalculatorView: View {
 	let crypto: CryptoResponseElement
 	@EnvironmentObject public var calculVM: CalculViewModel
-	@State private var numberToCalcul = [String]()
+	@State private var numberToCalcul = ""
+	@State private var showResult = false
 	var body: some View {
 		VStack {
 			ZStack(alignment: .center) {
@@ -34,8 +35,12 @@ struct CalculatorView: View {
 						Text("Prix actuel: $\(String(crypto.currentPrice ?? 0))")
 
 						HStack(spacing: 0.5) {
-							ForEach(Array(calculVM.numberEntry), id: \.self) { num in
+							if !showResult {
+							ForEach(Array(numberToCalcul), id: \.self) { num in
 								Text(String(num))
+							}
+							}else {
+								Text(String(calculVM.finalCalcul))
 							}
 						}.padding(.top, 25)
 					}
@@ -51,7 +56,21 @@ struct CalculatorView: View {
 			HStack {
 				ExtractedCalculButton(number: "7", numberToCalcul: $numberToCalcul)
 				ExtractedCalculButton(number: "8", numberToCalcul: $numberToCalcul)
-				ExtractedCalculButton(number: "9", numberToCalcul: $numberToCalcul)
+				Button(action: {
+					calculVM.numberEntry.append(numberToCalcul)
+					print(calculVM.numberEntry)
+					showResult.toggle()
+
+					let finalCalcul = calculVM.calculPrice(numberToCalcul, cryptoPrice: crypto.currentPrice ?? 0)
+					calculVM.numberEntry.removeAll()
+					numberToCalcul = ""
+					print(finalCalcul)
+				}, label: {
+
+					Text("=")
+						.font(.largeTitle)
+
+				})
 			}
 			HStack {
 				ExtractedCalculButton(number: "4", numberToCalcul: $numberToCalcul)
@@ -87,12 +106,13 @@ struct CalculatorView_Previews: PreviewProvider {
 
 struct ExtractedCalculButton: View {
 	var number: String
-	@Binding var numberToCalcul: [String]
+	@Binding var numberToCalcul: String
 	@EnvironmentObject public var calculVM: CalculViewModel
+
 
 	var body: some View {
 		Button(action: {
-			calculVM.numberEntry += number
+			self.numberToCalcul += number
 		}, label: {
 			ZStack {
 				Text(String(number))
