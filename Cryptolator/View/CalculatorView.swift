@@ -37,6 +37,7 @@ struct CalculatorView: View {
 							.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .title3))
 							.foregroundColor(colorScheme == .dark ? .white : .white)
 							.multilineTextAlignment(.center)
+							.padding(.horizontal, 20)
 						Text("Prix actuel: $\(String(crypto.currentPrice ?? 0))")
 							.font(.custom(FontManager.BlackOpsOne.regular, size: 17, relativeTo: .body))
 							.foregroundColor(colorScheme == .dark ? .white : .white)
@@ -45,6 +46,8 @@ struct CalculatorView: View {
 							ForEach(Array(numberToCalcul), id: \.self) { num in
 								Text(String(num))
 									.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .body))
+									.foregroundColor(colorScheme == .dark ? .white : .white)
+
 							}
 							}else {
 								Text("$\(String(format: "%.2f", calculVM.finalCalcul))")

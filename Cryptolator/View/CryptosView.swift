@@ -52,7 +52,7 @@ struct CryptosView: View {
 										.padding(.horizontal, 30)
 									}
 									}
-								}.padding(.top, 50)
+								}.padding(.vertical, 50)
 							}
 							.mask {
 								CalculatorScreenBackground()
