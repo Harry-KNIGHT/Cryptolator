@@ -40,7 +40,7 @@ struct CalculatorView: View {
 								Text(String(num))
 							}
 							}else {
-								Text("$\(String(calculVM.finalCalcul))")
+								Text("$\(String(format: "%.2f", calculVM.finalCalcul))")
 							}
 						}.padding(.top, 25)
 					}
@@ -80,7 +80,7 @@ struct CalculatorView: View {
 					_ = calculVM.calculPrice(numberToCalcul, cryptoPrice: crypto.currentPrice ?? 0)
 					calculVM.numberEntry.removeAll()
 					numberToCalcul = ""
-					
+
 				}, label: {
 					ZStack {
 						Text("=")
