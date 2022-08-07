@@ -13,9 +13,12 @@ struct CalculatorView: View {
 	@State private var numberToCalcul = ""
 	@State private var showResult = false
 	var body: some View {
+		ZStack {
+				Rectangle()
+					.fill(backGradient).blur(radius: 40)
+					.ignoresSafeArea(.all)
 		VStack {
 			ZStack(alignment: .center) {
-
 				ZStack(alignment: .top) {
 					CalculatorScreenBackground()
 						.padding(.horizontal, 10)
@@ -106,6 +109,7 @@ struct CalculatorView: View {
 		.navigationTitle(crypto.name ?? "")
 		.navigationBarTitleDisplayMode(.inline)
 	}
+}
 }
 
 struct CalculatorView_Previews: PreviewProvider {
