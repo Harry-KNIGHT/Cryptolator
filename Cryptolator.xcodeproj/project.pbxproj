@@ -26,6 +26,10 @@
 		3C5D0A34289F9D8D00A660C0 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C5D0A32289F9D8D00A660C0 /* OFL.txt */; };
 		3C5D0A35289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C5D0A33289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf */; };
 		3C5D0A38289F9E7400A660C0 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A37289F9E7400A660C0 /* FontManager.swift */; };
+		B3A38E18289FABC90071B8E5 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = B3A38E17289FABC90071B8E5 /* RiveRuntime */; };
+		B3A38E1C289FAC320071B8E5 /* EntryAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A38E1B289FAC320071B8E5 /* EntryAppView.swift */; };
+		B3A38E1E289FAC450071B8E5 /* ButtonToolsCustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A38E1D289FAC450071B8E5 /* ButtonToolsCustomShape.swift */; };
+		B3A38E21289FACC80071B8E5 /* hologrampresentation.riv in Resources */ = {isa = PBXBuildFile; fileRef = B3A38E20289FACC80071B8E5 /* hologrampresentation.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,9 @@
 		3C5D0A33289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackOpsOne-Regular.ttf"; sourceTree = "<group>"; };
 		3C5D0A36289F9DBD00A660C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C5D0A37289F9E7400A660C0 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		B3A38E1B289FAC320071B8E5 /* EntryAppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryAppView.swift; sourceTree = "<group>"; };
+		B3A38E1D289FAC450071B8E5 /* ButtonToolsCustomShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonToolsCustomShape.swift; sourceTree = "<group>"; };
+		B3A38E20289FACC80071B8E5 /* hologrampresentation.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = hologrampresentation.riv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A38E18289FABC90071B8E5 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +134,7 @@
 				3C5D0A13289E9EFF00A660C0 /* ViewModel */,
 				3C5D0A14289E9F1800A660C0 /* Api */,
 				3C5D09EB289E9E1600A660C0 /* Assets.xcassets */,
+				B3A38E1F289FACC80071B8E5 /* RiveAssets */,
 				3C5D09ED289E9E1600A660C0 /* Preview Content */,
 			);
 			path = Cryptolator;
@@ -172,6 +181,7 @@
 				3C5D0A15289E9F3A00A660C0 /* CalculatorView.swift */,
 				3C5D0A28289EE53600A660C0 /* Screenbackground.swift */,
 				3C5D0A21289EA80200A660C0 /* AsyncCryptoIconView.swift */,
+				B3A38E1B289FAC320071B8E5 /* EntryAppView.swift */,
 				3C5D0A31289F9D5E00A660C0 /* Fonts */,
 				3C5D0A25289EC4D500A660C0 /* Components */,
 			);
@@ -199,6 +209,7 @@
 			children = (
 				3C5D0A23289EC4B200A660C0 /* CalculatorButtonShape.swift */,
 				3C5D0A26289EE37E00A660C0 /* CalculScreenShape.swift */,
+				B3A38E1D289FAC450071B8E5 /* ButtonToolsCustomShape.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -211,6 +222,14 @@
 				3C5D0A37289F9E7400A660C0 /* FontManager.swift */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B3A38E1F289FACC80071B8E5 /* RiveAssets */ = {
+			isa = PBXGroup;
+			children = (
+				B3A38E20289FACC80071B8E5 /* hologrampresentation.riv */,
+			);
+			path = RiveAssets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +248,9 @@
 			dependencies = (
 			);
 			name = Cryptolator;
+			packageProductDependencies = (
+				B3A38E17289FABC90071B8E5 /* RiveRuntime */,
+			);
 			productName = Cryptolator;
 			productReference = 3C5D09E4289E9E1500A660C0 /* Cryptolator.app */;
 			productType = "com.apple.product-type.application";
@@ -301,6 +323,9 @@
 				Base,
 			);
 			mainGroup = 3C5D09DB289E9E1500A660C0;
+			packageReferences = (
+				B3A38E16289FABC90071B8E5 /* XCRemoteSwiftPackageReference "rive-ios" */,
+			);
 			productRefGroup = 3C5D09E5289E9E1500A660C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -321,6 +346,7 @@
 				3C5D09EF289E9E1600A660C0 /* Preview Assets.xcassets in Resources */,
 				3C5D09EC289E9E1600A660C0 /* Assets.xcassets in Resources */,
 				3C5D0A35289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf in Resources */,
+				B3A38E21289FACC80071B8E5 /* hologrampresentation.riv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,10 +377,12 @@
 				3C5D0A20289EA2E100A660C0 /* CryptoCurrenciesView.swift in Sources */,
 				3C5D0A24289EC4B200A660C0 /* CalculatorButtonShape.swift in Sources */,
 				3C5D0A29289EE53600A660C0 /* Screenbackground.swift in Sources */,
+				B3A38E1E289FAC450071B8E5 /* ButtonToolsCustomShape.swift in Sources */,
 				3C5D0A1C289E9F6C00A660C0 /* CryptoApi.swift in Sources */,
 				3C5D0A18289E9F5000A660C0 /* CalculatorViewModel.swift in Sources */,
 				3C5D0A27289EE37E00A660C0 /* CalculScreenShape.swift in Sources */,
 				3C5D09E8289E9E1500A660C0 /* CryptolatorApp.swift in Sources */,
+				B3A38E1C289FAC320071B8E5 /* EntryAppView.swift in Sources */,
 				3C5D0A38289F9E7400A660C0 /* FontManager.swift in Sources */,
 				3C5D0A22289EA80200A660C0 /* AsyncCryptoIconView.swift in Sources */,
 			);
@@ -683,6 +711,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3A38E16289FABC90071B8E5 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3A38E17289FABC90071B8E5 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3A38E16289FABC90071B8E5 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3C5D09DC289E9E1500A660C0 /* Project object */;
 }

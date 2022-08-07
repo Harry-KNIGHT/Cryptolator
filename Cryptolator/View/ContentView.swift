@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var cryptoCurrencies = CryptoCurrencyApi()
     var body: some View {
-       CryptoCurrenciesView()
+       EntryAppView()
     }
 }
 

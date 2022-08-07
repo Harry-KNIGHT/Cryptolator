@@ -10,7 +10,6 @@ import SwiftUI
 struct CryptoCurrenciesView: View {
 	@EnvironmentObject public var cryptos: CryptoCurrencyApi
 	var body: some View {
-		NavigationView {
 			ScrollView {
 				LazyVStack(alignment: .leading) {
 					ForEach(cryptos.cryptoCurrencies, id: \.self) { crypto in
@@ -39,14 +38,16 @@ struct CryptoCurrenciesView: View {
 					try await cryptos.fetchCrypto()
 				}
 			}
-			.navigationTitle("Cryptos")
-		}
+			.navigationBarTitle("Cryptos")
+            .navigationBarBackButtonHidden(true)
 	}
 }
 
 struct CryptoCurrenciesView_Previews: PreviewProvider {
 	static var previews: some View {
+        NavigationView {
 		CryptoCurrenciesView()
 			.environmentObject(CryptoCurrencyApi())
+        }
 	}
 }
