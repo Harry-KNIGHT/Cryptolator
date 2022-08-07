@@ -29,18 +29,21 @@ struct CalculatorView: View {
 
 						}
 					VStack(spacing: 10) {
-						Text("Rentre le nombre de \(crypto.name ?? "token") \n que tu veux acheter" )
+						Text("Combien de token \(crypto.name ?? "token") \n tu veux acheter ?" )
+							.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .title3))
 
 							.multilineTextAlignment(.center)
 						Text("Prix actuel: $\(String(crypto.currentPrice ?? 0))")
-
+							.font(.custom(FontManager.BlackOpsOne.regular, size: 17, relativeTo: .body))
 						HStack(spacing: 0.5) {
 							if !showResult {
 							ForEach(Array(numberToCalcul), id: \.self) { num in
 								Text(String(num))
+									.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .body))
 							}
 							}else {
 								Text("$\(String(format: "%.2f", calculVM.finalCalcul))")
+									.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .body))
 							}
 						}.padding(.top, 25)
 					}
@@ -125,7 +128,7 @@ struct ExtractedCalculButton: View {
 		}, label: {
 			ZStack {
 				Text(String(number))
-					.font(.title.bold())
+					.font(.custom(FontManager.BlackOpsOne.regular, size: 30, relativeTo: .title))
 					.foregroundColor(.white)
 				CalculatorButton()
 					.stroke(LinearGradient(colors: [Color("TopRadialBorderButton"), Color("BottomRadialBorderButton")], startPoint: .topTrailing, endPoint: .topLeading), lineWidth: 3)

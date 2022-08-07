@@ -23,6 +23,9 @@
 		3C5D0A24289EC4B200A660C0 /* CalculatorButtonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A23289EC4B200A660C0 /* CalculatorButtonShape.swift */; };
 		3C5D0A27289EE37E00A660C0 /* CalculScreenShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A26289EE37E00A660C0 /* CalculScreenShape.swift */; };
 		3C5D0A29289EE53600A660C0 /* Screenbackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A28289EE53600A660C0 /* Screenbackground.swift */; };
+		3C5D0A34289F9D8D00A660C0 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C5D0A32289F9D8D00A660C0 /* OFL.txt */; };
+		3C5D0A35289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C5D0A33289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf */; };
+		3C5D0A38289F9E7400A660C0 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A37289F9E7400A660C0 /* FontManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,10 @@
 		3C5D0A23289EC4B200A660C0 /* CalculatorButtonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonShape.swift; sourceTree = "<group>"; };
 		3C5D0A26289EE37E00A660C0 /* CalculScreenShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculScreenShape.swift; sourceTree = "<group>"; };
 		3C5D0A28289EE53600A660C0 /* Screenbackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenbackground.swift; sourceTree = "<group>"; };
+		3C5D0A32289F9D8D00A660C0 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		3C5D0A33289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackOpsOne-Regular.ttf"; sourceTree = "<group>"; };
+		3C5D0A36289F9DBD00A660C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C5D0A37289F9E7400A660C0 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +119,7 @@
 		3C5D09E6289E9E1500A660C0 /* Cryptolator */ = {
 			isa = PBXGroup;
 			children = (
+				3C5D0A36289F9DBD00A660C0 /* Info.plist */,
 				3C5D09E7289E9E1500A660C0 /* CryptolatorApp.swift */,
 				3C5D0A11289E9EE300A660C0 /* Model */,
 				3C5D0A12289E9EF800A660C0 /* View */,
@@ -164,6 +172,7 @@
 				3C5D0A15289E9F3A00A660C0 /* CalculatorView.swift */,
 				3C5D0A28289EE53600A660C0 /* Screenbackground.swift */,
 				3C5D0A21289EA80200A660C0 /* AsyncCryptoIconView.swift */,
+				3C5D0A31289F9D5E00A660C0 /* Fonts */,
 				3C5D0A25289EC4D500A660C0 /* Components */,
 			);
 			path = View;
@@ -192,6 +201,16 @@
 				3C5D0A26289EE37E00A660C0 /* CalculScreenShape.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		3C5D0A31289F9D5E00A660C0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3C5D0A33289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf */,
+				3C5D0A32289F9D8D00A660C0 /* OFL.txt */,
+				3C5D0A37289F9E7400A660C0 /* FontManager.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,8 +317,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C5D0A34289F9D8D00A660C0 /* OFL.txt in Resources */,
 				3C5D09EF289E9E1600A660C0 /* Preview Assets.xcassets in Resources */,
 				3C5D09EC289E9E1600A660C0 /* Assets.xcassets in Resources */,
+				3C5D0A35289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +355,7 @@
 				3C5D0A18289E9F5000A660C0 /* CalculatorViewModel.swift in Sources */,
 				3C5D0A27289EE37E00A660C0 /* CalculScreenShape.swift in Sources */,
 				3C5D09E8289E9E1500A660C0 /* CryptolatorApp.swift in Sources */,
+				3C5D0A38289F9E7400A660C0 /* FontManager.swift in Sources */,
 				3C5D0A22289EA80200A660C0 /* AsyncCryptoIconView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +518,7 @@
 				DEVELOPMENT_TEAM = 99M75C322U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cryptolator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -525,6 +548,7 @@
 				DEVELOPMENT_TEAM = 99M75C322U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cryptolator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
