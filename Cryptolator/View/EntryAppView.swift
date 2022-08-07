@@ -14,8 +14,10 @@ struct EntryAppView: View {
         NavigationView {
             ZStack {
                 Color.black.ignoresSafeArea()
-                VStack {
+                VStack(spacing: 20) {
             RiveViewModel(fileName: "hologrampresentation").view()
+                        .scaledToFill()
+                        .clipped()
                     
                     CalculatorButton()
                         .frame(width: 339, height: 72)
@@ -33,6 +35,14 @@ struct EntryAppView: View {
                                 Label("Access Calculator", image: "headstylebutton")
 										.font(.custom(FontManager.BlackOpsOne.regular, size: 23, relativeTo: .headline))
                                         .foregroundColor(Color("TopRadialBorderButton"))
+                                    
+                                    LinearGradient(colors: [Color("TopRadialBorderButton"), Color("BottomRadialBorderButton")], startPoint: .topTrailing, endPoint: .topLeading)
+                                        .mask {
+                                            ButtonToolsCustomShape()
+                                                .frame(width: 226, height: 20)
+                                                .padding(.bottom, 70)
+                                                .padding(.leading, 70)
+                                        }
                                 }
                             })
                             }
