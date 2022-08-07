@@ -31,8 +31,8 @@ struct EntryAppView: View {
                                 CalculatorButton()
                                     .stroke(LinearGradient(colors: [Color("TopRadialBorderButton"), Color("BottomRadialBorderButton")], startPoint: .topTrailing, endPoint: .topLeading),lineWidth: 2)
                                 Label("Access Calculator", image: "headstylebutton")
-                                        .font(.title2)
-                                        .foregroundColor(.white)
+										.font(.custom(FontManager.BlackOpsOne.regular, size: 23, relativeTo: .headline))
+                                        .foregroundColor(Color("TopRadialBorderButton"))
                                 }
                             })
                             }
