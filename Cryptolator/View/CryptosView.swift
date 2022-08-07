@@ -14,7 +14,7 @@ struct CryptosView: View {
 		VStack {
 			ZStack(alignment: .center) {
 			CalculatorScreenBackground()
-					.foregroundColor(Color("ScreenBackGround").opacity(1))
+                    .foregroundColor(Color("ScreenBackGround").opacity(0.16))
 					.padding(.horizontal, 15)
 					.frame(maxWidth: .infinity, maxHeight: 500)
 				.overlay {
@@ -24,12 +24,13 @@ struct CryptosView: View {
 					ScrollView(.vertical, showsIndicators: false) {
 						VStack(alignment: .center, spacing: 30) {
 							ForEach(cryptos.cryptoCurrencies, id: \.self) { crypto in
-								HStack {
+                                HStack(spacing: 5) {
 
 								AsyncCryptoIconView(crypto: crypto)
 									//.colorMultiply(Color("AsyncImageMultiply"))
-										.colorInvert()
-										
+                                    //.colorInvert()
+                                        .saturation(0)
+                                        .colorMultiply(.blue)
 									Spacer()
 								Text(crypto.name ?? "")
 									Spacer()
@@ -37,14 +38,24 @@ struct CryptosView: View {
 									.foregroundColor(.white)
 
 								}.padding(.horizontal, 30)
+                                
 							}
 						}
-					}.frame(width: .infinity, height: 420)
+					}
+                    .mask {
+                        CalculatorScreenBackground()
+                            .frame(height: 495)
+                    }
+                    
 				}
 
 			}
-			Spacer()
-			Image("lightEffect")
+			//Spacer()
+            Image("CircleEffectlumire")
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity, maxHeight: 200)
+                .opacity(0.70)
 
 		}.task {
 			Task {
