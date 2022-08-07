@@ -23,7 +23,7 @@ struct EntryAppView: View {
                         .opacity(0.2)
                         .overlay {
                             
-                            NavigationLink(destination: CryptoCurrenciesView(), isActive: $isActive) {
+                            NavigationLink(destination: CryptosView(), isActive: $isActive) {
                             Button(action: {
                                 isActive.toggle()
                             }, label: {
