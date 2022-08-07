@@ -26,6 +26,7 @@
 		3C5D0A34289F9D8D00A660C0 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C5D0A32289F9D8D00A660C0 /* OFL.txt */; };
 		3C5D0A35289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C5D0A33289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf */; };
 		3C5D0A38289F9E7400A660C0 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A37289F9E7400A660C0 /* FontManager.swift */; };
+		3C5D0A3A289FB08800A660C0 /* CryptosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A39289FB08800A660C0 /* CryptosView.swift */; };
 		B3A38E18289FABC90071B8E5 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = B3A38E17289FABC90071B8E5 /* RiveRuntime */; };
 		B3A38E1C289FAC320071B8E5 /* EntryAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A38E1B289FAC320071B8E5 /* EntryAppView.swift */; };
 		B3A38E1E289FAC450071B8E5 /* ButtonToolsCustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A38E1D289FAC450071B8E5 /* ButtonToolsCustomShape.swift */; };
@@ -73,6 +74,7 @@
 		3C5D0A33289F9D8D00A660C0 /* BlackOpsOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackOpsOne-Regular.ttf"; sourceTree = "<group>"; };
 		3C5D0A36289F9DBD00A660C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C5D0A37289F9E7400A660C0 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		3C5D0A39289FB08800A660C0 /* CryptosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptosView.swift; sourceTree = "<group>"; };
 		B3A38E1B289FAC320071B8E5 /* EntryAppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryAppView.swift; sourceTree = "<group>"; };
 		B3A38E1D289FAC450071B8E5 /* ButtonToolsCustomShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonToolsCustomShape.swift; sourceTree = "<group>"; };
 		B3A38E20289FACC80071B8E5 /* hologrampresentation.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = hologrampresentation.riv; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				3C5D09E9289E9E1500A660C0 /* ContentView.swift */,
 				3C5D0A1F289EA2E100A660C0 /* CryptoCurrenciesView.swift */,
+				3C5D0A39289FB08800A660C0 /* CryptosView.swift */,
 				3C5D0A15289E9F3A00A660C0 /* CalculatorView.swift */,
 				3C5D0A28289EE53600A660C0 /* Screenbackground.swift */,
 				3C5D0A21289EA80200A660C0 /* AsyncCryptoIconView.swift */,
@@ -385,6 +388,7 @@
 				B3A38E1C289FAC320071B8E5 /* EntryAppView.swift in Sources */,
 				3C5D0A38289F9E7400A660C0 /* FontManager.swift in Sources */,
 				3C5D0A22289EA80200A660C0 /* AsyncCryptoIconView.swift in Sources */,
+				3C5D0A3A289FB08800A660C0 /* CryptosView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
