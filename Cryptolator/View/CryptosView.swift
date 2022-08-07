@@ -27,9 +27,7 @@ struct CryptosView: View {
 							.padding(.horizontal, 15)
 							.frame(maxWidth: .infinity, maxHeight: 500)
 						.overlay {
-							CalculatorScreenBorder()
-								.stroke(Color("ScreenBorder"), lineWidth: 2.0)
-								.frame(maxWidth: .infinity, maxHeight: 500)
+							
 							ScrollView(.vertical, showsIndicators: false) {
 								VStack(alignment: .center, spacing: 30) {
 									ForEach(cryptos.cryptoCurrencies, id: \.self) { crypto in
@@ -60,7 +58,9 @@ struct CryptosView: View {
 								CalculatorScreenBackground()
 									.frame(height: 495)
 							}
-
+                            CalculatorScreenBorder()
+                                .stroke(Color("ScreenBorder"), lineWidth: 2.0)
+                                .frame(maxWidth: .infinity, maxHeight: 500)
 						}
 
 					}
