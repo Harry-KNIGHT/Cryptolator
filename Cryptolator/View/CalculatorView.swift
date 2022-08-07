@@ -67,7 +67,7 @@ struct CalculatorView: View {
 				ExtractedCalculButton(number: "2", numberToCalcul: $numberToCalcul, showResult: $showResult)
 				ExtractedCalculButton(number: "3", numberToCalcul: $numberToCalcul, showResult: $showResult)
 			}
-			
+
 			HStack {
 				ExtractedCalculButton(number: "0", numberToCalcul: $numberToCalcul, showResult: $showResult)
 				ExtractedCalculButton(number: ".", numberToCalcul: $numberToCalcul, showResult: $showResult)
@@ -77,10 +77,10 @@ struct CalculatorView: View {
 					print(calculVM.numberEntry)
 					showResult.toggle()
 
-					let finalCalcul = calculVM.calculPrice(numberToCalcul, cryptoPrice: crypto.currentPrice ?? 0)
+					_ = calculVM.calculPrice(numberToCalcul, cryptoPrice: crypto.currentPrice ?? 0)
 					calculVM.numberEntry.removeAll()
 					numberToCalcul = ""
-					print(finalCalcul)
+					
 				}, label: {
 					ZStack {
 						Text("=")
