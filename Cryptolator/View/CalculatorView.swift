@@ -12,6 +12,7 @@ struct CalculatorView: View {
 	@EnvironmentObject public var calculVM: CalculViewModel
 	@State private var numberToCalcul = ""
 	@State private var showResult = false
+	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
 		ZStack {
 				Rectangle()
@@ -34,10 +35,11 @@ struct CalculatorView: View {
 					VStack(spacing: 10) {
 						Text("Combien de token \(crypto.name ?? "token") \n tu veux acheter ?" )
 							.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .title3))
-
+							.foregroundColor(colorScheme == .dark ? .white : .white)
 							.multilineTextAlignment(.center)
 						Text("Prix actuel: $\(String(crypto.currentPrice ?? 0))")
 							.font(.custom(FontManager.BlackOpsOne.regular, size: 17, relativeTo: .body))
+							.foregroundColor(colorScheme == .dark ? .white : .white)
 						HStack(spacing: 0.5) {
 							if !showResult {
 							ForEach(Array(numberToCalcul), id: \.self) { num in
@@ -47,6 +49,7 @@ struct CalculatorView: View {
 							}else {
 								Text("$\(String(format: "%.2f", calculVM.finalCalcul))")
 									.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .body))
+									.foregroundColor(colorScheme == .dark ? .white : .white)
 							}
 						}.padding(.top, 25)
 					}
@@ -93,7 +96,7 @@ struct CalculatorView: View {
 							.font(.title.bold())
 							.foregroundColor(.white)
 						CalculatorButton()
-							.stroke(LinearGradient(colors: [Color("TopRadialBorderButton"), Color("BottomRadialBorderButton")], startPoint: .topTrailing, endPoint: .topLeading), lineWidth: 3)
+							.stroke(LinearGradient(colors: [Color.red, Color("BottomRadialBorderButton")], startPoint: .topTrailing, endPoint: .topLeading), lineWidth: 3)
 							.frame(width: 80, height: 80)
 							.background(Color("BackgroundButton").opacity(0.2))
 							.mask {
@@ -125,6 +128,7 @@ struct ExtractedCalculButton: View {
 	@Binding var numberToCalcul: String
 	@EnvironmentObject public var calculVM: CalculViewModel
 	@Binding public var showResult: Bool
+	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
 		Button(action: {
 			self.numberToCalcul += number
@@ -133,7 +137,7 @@ struct ExtractedCalculButton: View {
 			ZStack {
 				Text(String(number))
 					.font(.custom(FontManager.BlackOpsOne.regular, size: 30, relativeTo: .title))
-					.foregroundColor(.white)
+					.foregroundColor(colorScheme == .dark ? .white : .white)
 				CalculatorButton()
 					.stroke(LinearGradient(colors: [Color("TopRadialBorderButton"), Color("BottomRadialBorderButton")], startPoint: .topTrailing, endPoint: .topLeading), lineWidth: 3)
 					.frame(width: 80, height: 80)
