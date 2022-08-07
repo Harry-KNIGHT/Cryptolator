@@ -34,9 +34,12 @@ struct CryptosView: View {
 											.colorMultiply(.blue)
 										Spacer()
 									Text(crypto.name ?? "")
+											.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .headline))
+											.foregroundColor(Color("TextMainCryptoListColor"))
 										Spacer()
-										Text(String(format: "%.2f", crypto.currentPrice ?? 0))
-										.foregroundColor(.white)
+										Text("$\(String(format: "%.2f", crypto.currentPrice ?? 0))")
+											.font(.custom(FontManager.BlackOpsOne.regular, size: 15, relativeTo: .headline))
+										.foregroundColor(Color("TextMainCryptoListColor"))
 
 									}
 									.padding(.horizontal, 30)

@@ -18,7 +18,6 @@
 		3C5D0A18289E9F5000A660C0 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A17289E9F5000A660C0 /* CalculatorViewModel.swift */; };
 		3C5D0A1A289E9F5E00A660C0 /* CryptoCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A19289E9F5E00A660C0 /* CryptoCurrencyModel.swift */; };
 		3C5D0A1C289E9F6C00A660C0 /* CryptoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A1B289E9F6C00A660C0 /* CryptoApi.swift */; };
-		3C5D0A20289EA2E100A660C0 /* CryptoCurrenciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A1F289EA2E100A660C0 /* CryptoCurrenciesView.swift */; };
 		3C5D0A22289EA80200A660C0 /* AsyncCryptoIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A21289EA80200A660C0 /* AsyncCryptoIconView.swift */; };
 		3C5D0A24289EC4B200A660C0 /* CalculatorButtonShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A23289EC4B200A660C0 /* CalculatorButtonShape.swift */; };
 		3C5D0A27289EE37E00A660C0 /* CalculScreenShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D0A26289EE37E00A660C0 /* CalculScreenShape.swift */; };
@@ -65,7 +64,6 @@
 		3C5D0A17289E9F5000A660C0 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		3C5D0A19289E9F5E00A660C0 /* CryptoCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyModel.swift; sourceTree = "<group>"; };
 		3C5D0A1B289E9F6C00A660C0 /* CryptoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApi.swift; sourceTree = "<group>"; };
-		3C5D0A1F289EA2E100A660C0 /* CryptoCurrenciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrenciesView.swift; sourceTree = "<group>"; };
 		3C5D0A21289EA80200A660C0 /* AsyncCryptoIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCryptoIconView.swift; sourceTree = "<group>"; };
 		3C5D0A23289EC4B200A660C0 /* CalculatorButtonShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonShape.swift; sourceTree = "<group>"; };
 		3C5D0A26289EE37E00A660C0 /* CalculScreenShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculScreenShape.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				3C5D09E9289E9E1500A660C0 /* ContentView.swift */,
-				3C5D0A1F289EA2E100A660C0 /* CryptoCurrenciesView.swift */,
 				3C5D0A39289FB08800A660C0 /* CryptosView.swift */,
 				3C5D0A15289E9F3A00A660C0 /* CalculatorView.swift */,
 				3C5D0A28289EE53600A660C0 /* Screenbackground.swift */,
@@ -377,7 +374,6 @@
 				3C5D09EA289E9E1500A660C0 /* ContentView.swift in Sources */,
 				3C5D0A16289E9F3A00A660C0 /* CalculatorView.swift in Sources */,
 				3C5D0A1A289E9F5E00A660C0 /* CryptoCurrencyModel.swift in Sources */,
-				3C5D0A20289EA2E100A660C0 /* CryptoCurrenciesView.swift in Sources */,
 				3C5D0A24289EC4B200A660C0 /* CalculatorButtonShape.swift in Sources */,
 				3C5D0A29289EE53600A660C0 /* Screenbackground.swift in Sources */,
 				B3A38E1E289FAC450071B8E5 /* ButtonToolsCustomShape.swift in Sources */,
