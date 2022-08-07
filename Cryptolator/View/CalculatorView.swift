@@ -40,38 +40,21 @@ struct CalculatorView: View {
 								Text(String(num))
 							}
 							}else {
-								Text(String(calculVM.finalCalcul))
+								Text("$\(String(calculVM.finalCalcul))")
 							}
 						}.padding(.top, 25)
 					}
 					.padding(.top, 50)
 				}
-
 				.padding(.horizontal, 4)
-
-
-
-
 			}
+
 			HStack {
 				ExtractedCalculButton(number: "7", numberToCalcul: $numberToCalcul, showResult: $showResult)
 				ExtractedCalculButton(number: "8", numberToCalcul: $numberToCalcul, showResult: $showResult)
-				Button(action: {
-					calculVM.numberEntry.append(numberToCalcul)
-					print(calculVM.numberEntry)
-					showResult.toggle()
-
-					let finalCalcul = calculVM.calculPrice(numberToCalcul, cryptoPrice: crypto.currentPrice ?? 0)
-					calculVM.numberEntry.removeAll()
-					numberToCalcul = ""
-					print(finalCalcul)
-				}, label: {
-
-					Text("=")
-						.font(.largeTitle)
-
-				})
+				ExtractedCalculButton(number: "9", numberToCalcul: $numberToCalcul, showResult: $showResult)
 			}
+
 			HStack {
 				ExtractedCalculButton(number: "4", numberToCalcul: $numberToCalcul, showResult: $showResult)
 				ExtractedCalculButton(number: "5", numberToCalcul: $numberToCalcul, showResult: $showResult)
@@ -84,10 +67,36 @@ struct CalculatorView: View {
 				ExtractedCalculButton(number: "2", numberToCalcul: $numberToCalcul, showResult: $showResult)
 				ExtractedCalculButton(number: "3", numberToCalcul: $numberToCalcul, showResult: $showResult)
 			}
+			
 			HStack {
 				ExtractedCalculButton(number: "0", numberToCalcul: $numberToCalcul, showResult: $showResult)
 				ExtractedCalculButton(number: ".", numberToCalcul: $numberToCalcul, showResult: $showResult)
-				ExtractedCalculButton(number: "=", numberToCalcul: $numberToCalcul, showResult: $showResult)
+
+				Button(action: {
+					calculVM.numberEntry.append(numberToCalcul)
+					print(calculVM.numberEntry)
+					showResult.toggle()
+
+					let finalCalcul = calculVM.calculPrice(numberToCalcul, cryptoPrice: crypto.currentPrice ?? 0)
+					calculVM.numberEntry.removeAll()
+					numberToCalcul = ""
+					print(finalCalcul)
+				}, label: {
+					ZStack {
+						Text("=")
+							.font(.title.bold())
+							.foregroundColor(.white)
+						CalculatorButton()
+							.stroke(LinearGradient(colors: [Color("TopRadialBorderButton"), Color("BottomRadialBorderButton")], startPoint: .topTrailing, endPoint: .topLeading), lineWidth: 3)
+							.frame(width: 80, height: 80)
+							.background(Color("BackgroundButton").opacity(0.2))
+							.mask {
+								CalculatorButton()
+							}
+					}
+
+				})	.buttonStyle(.borderless)
+					.padding()
 			}
 
 		}
