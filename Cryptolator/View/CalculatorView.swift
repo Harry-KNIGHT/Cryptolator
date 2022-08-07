@@ -15,107 +15,106 @@ struct CalculatorView: View {
 	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
 		ZStack {
-				Rectangle()
-					.fill(backGradient).blur(radius: 40)
-					.ignoresSafeArea(.all)
-		VStack {
-			ZStack(alignment: .center) {
-				ZStack(alignment: .top) {
-					CalculatorScreenBackground()
-						.padding(.horizontal, 10)
-						.foregroundColor(Color("ScreenBackGround").opacity(0.16))
-						.frame(width: 375, height: 235)
-						.overlay {
-							CalculatorScreenBorder()
-								.stroke(Color("ScreenBorder"), lineWidth: 2.0)
-								.padding(.horizontal, 10)
-								.frame(width: 400, height: 235)
+			Rectangle()
+				.fill(backGradient).blur(radius: 40)
+				.ignoresSafeArea(.all)
+			VStack {
+				ZStack(alignment: .center) {
+					ZStack(alignment: .top) {
+						CalculatorScreenBackground()
+							.padding(.horizontal, 10)
+							.foregroundColor(Color("ScreenBackGround").opacity(0.16))
+							.frame(width: 375, height: 235)
+							.overlay {
+								CalculatorScreenBorder()
+									.stroke(Color("ScreenBorder"), lineWidth: 2.0)
+									.padding(.horizontal, 10)
+									.frame(width: 400, height: 235)
 
+							}
+						VStack(spacing: 10) {
+							Text("Combien de token \(crypto.name ?? "token") \n tu veux acheter ?" )
+								.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .title3))
+								.foregroundColor(colorScheme == .dark ? .white : .white)
+								.multilineTextAlignment(.center)
+								.padding(.horizontal, 20)
+							Text("Prix actuel: $\(String(crypto.currentPrice ?? 0))")
+								.font(.custom(FontManager.BlackOpsOne.regular, size: 17, relativeTo: .body))
+								.foregroundColor(colorScheme == .dark ? .white : .white)
+							HStack(spacing: 0.5) {
+								if !showResult {
+									ForEach(Array(numberToCalcul), id: \.self) { num in
+										Text(String(num))
+											.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .body))
+											.foregroundColor(colorScheme == .dark ? .white : .white)
+									}
+								}else {
+									Text("$\(String(format: "%.2f", calculVM.finalCalcul))")
+										.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .body))
+										.foregroundColor(colorScheme == .dark ? .white : .white)
+								}
+							}.padding(.top, 25)
 						}
-					VStack(spacing: 10) {
-						Text("Combien de token \(crypto.name ?? "token") \n tu veux acheter ?" )
-							.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .title3))
-							.foregroundColor(colorScheme == .dark ? .white : .white)
-							.multilineTextAlignment(.center)
-							.padding(.horizontal, 20)
-						Text("Prix actuel: $\(String(crypto.currentPrice ?? 0))")
-							.font(.custom(FontManager.BlackOpsOne.regular, size: 17, relativeTo: .body))
-							.foregroundColor(colorScheme == .dark ? .white : .white)
-						HStack(spacing: 0.5) {
-							if !showResult {
-							ForEach(Array(numberToCalcul), id: \.self) { num in
-								Text(String(num))
-									.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .body))
-									.foregroundColor(colorScheme == .dark ? .white : .white)
-
-							}
-							}else {
-								Text("$\(String(format: "%.2f", calculVM.finalCalcul))")
-									.font(.custom(FontManager.BlackOpsOne.regular, size: 20, relativeTo: .body))
-									.foregroundColor(colorScheme == .dark ? .white : .white)
-							}
-						}.padding(.top, 25)
+						.padding(.top, 50)
 					}
-					.padding(.top, 50)
+					.padding(.horizontal, 4)
 				}
-				.padding(.horizontal, 4)
+
+				HStack {
+					ExtractedCalculButton(number: "7", numberToCalcul: $numberToCalcul, showResult: $showResult)
+					ExtractedCalculButton(number: "8", numberToCalcul: $numberToCalcul, showResult: $showResult)
+					ExtractedCalculButton(number: "9", numberToCalcul: $numberToCalcul, showResult: $showResult)
+				}
+
+				HStack {
+					ExtractedCalculButton(number: "4", numberToCalcul: $numberToCalcul, showResult: $showResult)
+					ExtractedCalculButton(number: "5", numberToCalcul: $numberToCalcul, showResult: $showResult)
+					ExtractedCalculButton(number: "6", numberToCalcul: $numberToCalcul, showResult: $showResult)
+				}
+
+
+				HStack {
+					ExtractedCalculButton(number: "1", numberToCalcul: $numberToCalcul, showResult: $showResult)
+					ExtractedCalculButton(number: "2", numberToCalcul: $numberToCalcul, showResult: $showResult)
+					ExtractedCalculButton(number: "3", numberToCalcul: $numberToCalcul, showResult: $showResult)
+				}
+
+				HStack {
+					ExtractedCalculButton(number: "0", numberToCalcul: $numberToCalcul, showResult: $showResult)
+					ExtractedCalculButton(number: ".", numberToCalcul: $numberToCalcul, showResult: $showResult)
+
+					Button(action: {
+						calculVM.numberEntry.append(numberToCalcul)
+						print(calculVM.numberEntry)
+						showResult.toggle()
+
+						_ = calculVM.calculPrice(numberToCalcul, cryptoPrice: crypto.currentPrice ?? 0)
+						calculVM.numberEntry.removeAll()
+						numberToCalcul = ""
+
+					}, label: {
+						ZStack {
+							Text("=")
+								.font(.title.bold())
+								.foregroundColor(.white)
+							CalculatorButton()
+								.stroke(LinearGradient(colors: [Color.red, Color("BottomRadialBorderButton")], startPoint: .topTrailing, endPoint: .topLeading), lineWidth: 3)
+								.frame(width: 80, height: 80)
+								.background(Color("BackgroundButton").opacity(0.2))
+								.mask {
+									CalculatorButton()
+								}
+						}
+
+					})	.buttonStyle(.borderless)
+						.padding()
+				}
+
 			}
-
-			HStack {
-				ExtractedCalculButton(number: "7", numberToCalcul: $numberToCalcul, showResult: $showResult)
-				ExtractedCalculButton(number: "8", numberToCalcul: $numberToCalcul, showResult: $showResult)
-				ExtractedCalculButton(number: "9", numberToCalcul: $numberToCalcul, showResult: $showResult)
-			}
-
-			HStack {
-				ExtractedCalculButton(number: "4", numberToCalcul: $numberToCalcul, showResult: $showResult)
-				ExtractedCalculButton(number: "5", numberToCalcul: $numberToCalcul, showResult: $showResult)
-				ExtractedCalculButton(number: "6", numberToCalcul: $numberToCalcul, showResult: $showResult)
-			}
-
-
-			HStack {
-				ExtractedCalculButton(number: "1", numberToCalcul: $numberToCalcul, showResult: $showResult)
-				ExtractedCalculButton(number: "2", numberToCalcul: $numberToCalcul, showResult: $showResult)
-				ExtractedCalculButton(number: "3", numberToCalcul: $numberToCalcul, showResult: $showResult)
-			}
-
-			HStack {
-				ExtractedCalculButton(number: "0", numberToCalcul: $numberToCalcul, showResult: $showResult)
-				ExtractedCalculButton(number: ".", numberToCalcul: $numberToCalcul, showResult: $showResult)
-
-				Button(action: {
-					calculVM.numberEntry.append(numberToCalcul)
-					print(calculVM.numberEntry)
-					showResult.toggle()
-
-					_ = calculVM.calculPrice(numberToCalcul, cryptoPrice: crypto.currentPrice ?? 0)
-					calculVM.numberEntry.removeAll()
-					numberToCalcul = ""
-
-				}, label: {
-					ZStack {
-						Text("=")
-							.font(.title.bold())
-							.foregroundColor(.white)
-						CalculatorButton()
-							.stroke(LinearGradient(colors: [Color.red, Color("BottomRadialBorderButton")], startPoint: .topTrailing, endPoint: .topLeading), lineWidth: 3)
-							.frame(width: 80, height: 80)
-							.background(Color("BackgroundButton").opacity(0.2))
-							.mask {
-								CalculatorButton()
-							}
-					}
-
-				})	.buttonStyle(.borderless)
-					.padding()
-			}
-
+			.navigationTitle(crypto.name ?? "")
+			.navigationBarTitleDisplayMode(.inline)
 		}
-		.navigationTitle(crypto.name ?? "")
-		.navigationBarTitleDisplayMode(.inline)
 	}
-}
 }
 
 struct CalculatorView_Previews: PreviewProvider {
